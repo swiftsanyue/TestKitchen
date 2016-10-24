@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		150D04718F6095B228AD963F /* Pods_TestKitchen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAEA59955108E3A5758535B /* Pods_TestKitchen.framework */; };
+		BC31D8FB1DBD9BF600B4FDF7 /* Controllers.json in Resources */ = {isa = PBXBuildFile; fileRef = BC31D8FA1DBD9BF600B4FDF7 /* Controllers.json */; };
+		BC31D8FD1DBDAC4600B4FDF7 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31D8FC1DBDAC4600B4FDF7 /* Const.swift */; };
+		BC31D8FF1DBDACE300B4FDF7 /* KTCDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31D8FE1DBDACE300B4FDF7 /* KTCDownloader.swift */; };
+		BC31D9011DBDB6CC00B4FDF7 /* ingreRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31D9001DBDB6CC00B4FDF7 /* ingreRecommend.swift */; };
 		BC4303FC1DB9A50900410286 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4303FB1DB9A50900410286 /* AppDelegate.swift */; };
 		BC4303FE1DB9A50900410286 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4303FD1DB9A50900410286 /* ViewController.swift */; };
 		BC4304011DB9A50900410286 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4303FF1DB9A50900410286 /* Main.storyboard */; };
@@ -48,7 +52,6 @@
 		BC43049A1DB9B98000410286 /* UIView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4304991DB9B98000410286 /* UIView+Common.swift */; };
 		BC43049C1DB9BA0A00410286 /* UILabel+common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43049B1DB9BA0A00410286 /* UILabel+common.swift */; };
 		BC43049E1DB9BB9100410286 /* UIButton+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43049D1DB9BB9100410286 /* UIButton+Common.swift */; };
-		BC4304A01DB9C38700410286 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43049F1DB9C38700410286 /* Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,10 @@
 		645FCF411D130089E5D7F08F /* Pods-TestKitchen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestKitchen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestKitchen/Pods-TestKitchen.debug.xcconfig"; sourceTree = "<group>"; };
 		AAAEA59955108E3A5758535B /* Pods_TestKitchen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestKitchen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE771C790CE0410F65489E9 /* Pods-TestKitchen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestKitchen.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestKitchen/Pods-TestKitchen.release.xcconfig"; sourceTree = "<group>"; };
+		BC31D8FA1DBD9BF600B4FDF7 /* Controllers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Controllers.json; sourceTree = "<group>"; };
+		BC31D8FC1DBDAC4600B4FDF7 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		BC31D8FE1DBDACE300B4FDF7 /* KTCDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCDownloader.swift; sourceTree = "<group>"; };
+		BC31D9001DBDB6CC00B4FDF7 /* ingreRecommend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ingreRecommend.swift; sourceTree = "<group>"; };
 		BC4303F81DB9A50900410286 /* TestKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4303FB1DB9A50900410286 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC4303FD1DB9A50900410286 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +125,6 @@
 		BC4304991DB9B98000410286 /* UIView+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Common.swift"; sourceTree = "<group>"; };
 		BC43049B1DB9BA0A00410286 /* UILabel+common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+common.swift"; sourceTree = "<group>"; };
 		BC43049D1DB9BB9100410286 /* UIButton+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Common.swift"; sourceTree = "<group>"; };
-		BC43049F1DB9C38700410286 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +246,9 @@
 				BC4304991DB9B98000410286 /* UIView+Common.swift */,
 				BC43049B1DB9BA0A00410286 /* UILabel+common.swift */,
 				BC43049D1DB9BB9100410286 /* UIButton+Common.swift */,
-				BC43049F1DB9C38700410286 /* Const.swift */,
+				BC31D8FC1DBDAC4600B4FDF7 /* Const.swift */,
+				BC31D8FE1DBDACE300B4FDF7 /* KTCDownloader.swift */,
+				BC31D8FA1DBD9BF600B4FDF7 /* Controllers.json */,
 			);
 			path = "common(公共类)";
 			sourceTree = "<group>";
@@ -389,6 +397,7 @@
 		BC43043D1DB9A84F00410286 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BC31D9001DBDB6CC00B4FDF7 /* ingreRecommend.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -757,6 +766,7 @@
 				BC43048F1DB9AF7300410286 /* mine_select@2x.png in Resources */,
 				BC4304931DB9AF7300410286 /* shike_select@2x.png in Resources */,
 				BC4304941DB9AF7300410286 /* shike_select@3x.png in Resources */,
+				BC31D8FB1DBD9BF600B4FDF7 /* Controllers.json in Resources */,
 				BC4304851DB9AF7300410286 /* community_normal@2x.png in Resources */,
 				BC43048D1DB9AF7300410286 /* mine_normal@2x.png in Resources */,
 				BC43048A1DB9AF7300410286 /* home_normal@3x.png in Resources */,
@@ -847,6 +857,7 @@
 			files = (
 				BC4303FE1DB9A50900410286 /* ViewController.swift in Sources */,
 				BC43045F1DB9AA6B00410286 /* FoodClassViewController.swift in Sources */,
+				BC31D9011DBDB6CC00B4FDF7 /* ingreRecommend.swift in Sources */,
 				BC4304571DB9A9FE00410286 /* MaterialViewController.swift in Sources */,
 				BC4303FC1DB9A50900410286 /* AppDelegate.swift in Sources */,
 				BC43049E1DB9BB9100410286 /* UIButton+Common.swift in Sources */,
@@ -858,7 +869,8 @@
 				BC43045B1DB9AA2900410286 /* MallViewController.swift in Sources */,
 				BC43049A1DB9B98000410286 /* UIView+Common.swift in Sources */,
 				BC4304671DB9AB8700410286 /* MainTabBarViewController.swift in Sources */,
-				BC4304A01DB9C38700410286 /* Const.swift in Sources */,
+				BC31D8FF1DBDACE300B4FDF7 /* KTCDownloader.swift in Sources */,
+				BC31D8FD1DBDAC4600B4FDF7 /* Const.swift in Sources */,
 				BC4304651DB9AB2500410286 /* CategoryViewController.swift in Sources */,
 				BC4304631DB9AAF900410286 /* RecommendViewController.swift in Sources */,
 			);
@@ -1003,6 +1015,7 @@
 			baseConfigurationReference = 645FCF411D130089E5D7F08F /* Pods-TestKitchen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TestKitchen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-980681359.TestKitchen";
@@ -1015,6 +1028,7 @@
 			baseConfigurationReference = BAE771C790CE0410F65489E9 /* Pods-TestKitchen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TestKitchen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-980681359.TestKitchen";
