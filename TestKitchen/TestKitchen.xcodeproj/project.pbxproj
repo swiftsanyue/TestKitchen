@@ -52,6 +52,12 @@
 		BC43049A1DB9B98000410286 /* UIView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4304991DB9B98000410286 /* UIView+Common.swift */; };
 		BC43049C1DB9BA0A00410286 /* UILabel+common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43049B1DB9BA0A00410286 /* UILabel+common.swift */; };
 		BC43049E1DB9BB9100410286 /* UIButton+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43049D1DB9BB9100410286 /* UIButton+Common.swift */; };
+		BC4429B31DBEED5A00C93CE0 /* IngreRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4429B21DBEED5A00C93CE0 /* IngreRecommendView.swift */; };
+		BC4429B61DBEF38D00C93CE0 /* IngrebannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4429B41DBEF38D00C93CE0 /* IngrebannerCell.swift */; };
+		BC4429B71DBEF38D00C93CE0 /* IngrebannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4429B51DBEF38D00C93CE0 /* IngrebannerCell.xib */; };
+		BC4429B91DBEF80500C93CE0 /* sdefaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC4429B81DBEF80500C93CE0 /* sdefaultImage.png */; };
+		BC4429BC1DBF09F000C93CE0 /* IngreLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4429BA1DBF09F000C93CE0 /* IngreLikeCell.swift */; };
+		BC4429BD1DBF09F000C93CE0 /* IngreLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4429BB1DBF09F000C93CE0 /* IngreLikeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +131,12 @@
 		BC4304991DB9B98000410286 /* UIView+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Common.swift"; sourceTree = "<group>"; };
 		BC43049B1DB9BA0A00410286 /* UILabel+common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+common.swift"; sourceTree = "<group>"; };
 		BC43049D1DB9BB9100410286 /* UIButton+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Common.swift"; sourceTree = "<group>"; };
+		BC4429B21DBEED5A00C93CE0 /* IngreRecommendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngreRecommendView.swift; sourceTree = "<group>"; };
+		BC4429B41DBEF38D00C93CE0 /* IngrebannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngrebannerCell.swift; sourceTree = "<group>"; };
+		BC4429B51DBEF38D00C93CE0 /* IngrebannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngrebannerCell.xib; sourceTree = "<group>"; };
+		BC4429B81DBEF80500C93CE0 /* sdefaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sdefaultImage.png; path = "../../common(公共类)/sdefaultImage.png"; sourceTree = "<group>"; };
+		BC4429BA1DBF09F000C93CE0 /* IngreLikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngreLikeCell.swift; sourceTree = "<group>"; };
+		BC4429BB1DBF09F000C93CE0 /* IngreLikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngreLikeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +417,7 @@
 		BC43043E1DB9A84F00410286 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BC4429B21DBEED5A00C93CE0 /* IngreRecommendView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -469,6 +482,10 @@
 		BC4304461DB9A84F00410286 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BC4429B41DBEF38D00C93CE0 /* IngrebannerCell.swift */,
+				BC4429B51DBEF38D00C93CE0 /* IngrebannerCell.xib */,
+				BC4429BA1DBF09F000C93CE0 /* IngreLikeCell.swift */,
+				BC4429BB1DBF09F000C93CE0 /* IngreLikeCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -606,6 +623,7 @@
 		BC43047E1DB9AF7300410286 /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				BC4429B81DBEF80500C93CE0 /* sdefaultImage.png */,
 			);
 			path = "公共";
 			sourceTree = "<group>";
@@ -765,6 +783,7 @@
 				BC4304901DB9AF7300410286 /* mine_select@3x.png in Resources */,
 				BC43048F1DB9AF7300410286 /* mine_select@2x.png in Resources */,
 				BC4304931DB9AF7300410286 /* shike_select@2x.png in Resources */,
+				BC4429BD1DBF09F000C93CE0 /* IngreLikeCell.xib in Resources */,
 				BC4304941DB9AF7300410286 /* shike_select@3x.png in Resources */,
 				BC31D8FB1DBD9BF600B4FDF7 /* Controllers.json in Resources */,
 				BC4304851DB9AF7300410286 /* community_normal@2x.png in Resources */,
@@ -774,11 +793,13 @@
 				BC4304981DB9AF7300410286 /* shop_select@3x.png in Resources */,
 				BC43048C1DB9AF7300410286 /* home_select@3x.png in Resources */,
 				BC4304031DB9A50900410286 /* Assets.xcassets in Resources */,
+				BC4429B91DBEF80500C93CE0 /* sdefaultImage.png in Resources */,
 				BC43048E1DB9AF7300410286 /* mine_normal@3x.png in Resources */,
 				BC4304861DB9AF7300410286 /* community_normal@3x.png in Resources */,
 				BC4304961DB9AF7300410286 /* shop_normal@3x.png in Resources */,
 				BC4304971DB9AF7300410286 /* shop_select@2x.png in Resources */,
 				BC4304911DB9AF7300410286 /* shike_normal@2x.png in Resources */,
+				BC4429B71DBEF38D00C93CE0 /* IngrebannerCell.xib in Resources */,
 				BC43048B1DB9AF7300410286 /* home_select@2x.png in Resources */,
 				BC4304951DB9AF7300410286 /* shop_normal@2x.png in Resources */,
 				BC4304871DB9AF7300410286 /* community_select@2x.png in Resources */,
@@ -856,7 +877,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC4303FE1DB9A50900410286 /* ViewController.swift in Sources */,
+				BC4429B31DBEED5A00C93CE0 /* IngreRecommendView.swift in Sources */,
 				BC43045F1DB9AA6B00410286 /* FoodClassViewController.swift in Sources */,
+				BC4429B61DBEF38D00C93CE0 /* IngrebannerCell.swift in Sources */,
 				BC31D9011DBDB6CC00B4FDF7 /* ingreRecommend.swift in Sources */,
 				BC4304571DB9A9FE00410286 /* MaterialViewController.swift in Sources */,
 				BC4303FC1DB9A50900410286 /* AppDelegate.swift in Sources */,
@@ -868,6 +891,7 @@
 				BC43045D1DB9AA4000410286 /* profileViewController.swift in Sources */,
 				BC43045B1DB9AA2900410286 /* MallViewController.swift in Sources */,
 				BC43049A1DB9B98000410286 /* UIView+Common.swift in Sources */,
+				BC4429BC1DBF09F000C93CE0 /* IngreLikeCell.swift in Sources */,
 				BC4304671DB9AB8700410286 /* MainTabBarViewController.swift in Sources */,
 				BC31D8FF1DBDACE300B4FDF7 /* KTCDownloader.swift in Sources */,
 				BC31D8FD1DBDAC4600B4FDF7 /* Const.swift in Sources */,

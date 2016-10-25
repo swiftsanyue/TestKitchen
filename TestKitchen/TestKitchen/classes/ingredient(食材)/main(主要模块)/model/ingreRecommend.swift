@@ -39,8 +39,8 @@ class IngreRecommend: NSObject {
 class IngreReommendData: NSObject {
     
     
-    var bannerArray: Array<IngreRecommedBanner>?
-    var widgetList: Array<NSObject>?
+    var banner: Array<IngreRecommendBanner>?
+    var widgetList: Array<IngreRecommendWidgeList>?
     
     //解析
     class func parseModel(json: JSON) -> IngreReommendData {
@@ -48,19 +48,19 @@ class IngreReommendData: NSObject {
         let model = IngreReommendData()
         
         //广告数据
-        var tmpBannerArray = Array<IngreRecommedBanner>()
+        var tmpBannerArray = Array<IngreRecommendBanner>()
         
-        for (_, subjson): (String,JSON) in json["bannerArray"] {
-            let bannerModel = IngreRecommedBanner.parseModel(subjson)
+        for (_, subjson): (String,JSON) in json["banner"] {
+            let bannerModel = IngreRecommendBanner.parseModel(subjson)
             tmpBannerArray.append(bannerModel)
         }
-        model.bannerArray = tmpBannerArray
+        model.banner = tmpBannerArray
         
         //列表数据
-        var tmpList = Array<NSObject>()
+        var tmpList = Array<IngreRecommendWidgeList>()
         
-        for (index, subjson): (String, JSON) in json["widgetList"] {
-            let wModel = NSObject()
+        for (_, subjson): (String, JSON) in json["widgetList"] {
+            let wModel = IngreRecommendWidgeList.parseModel(subjson)
             tmpList.append(wModel)
         }
         model.widgetList = tmpList
@@ -71,7 +71,7 @@ class IngreReommendData: NSObject {
 }
 
 
-class IngreRecommedBanner: NSObject {
+class IngreRecommendBanner: NSObject {
     
     var banner_id: NSNumber?
     var banner_link: String?
@@ -84,8 +84,8 @@ class IngreRecommedBanner: NSObject {
     var type_id: NSNumber?
     
     //解析
-    class func parseModel(json: JSON) -> IngreRecommedBanner {
-        let model = IngreRecommedBanner()
+    class func parseModel(json: JSON) -> IngreRecommendBanner {
+        let model = IngreRecommendBanner()
         model.banner_id = json["banner_id"].number
         model.banner_link = json["banner_link"].string
         model.banner_picture = json["banner_picture"].string
@@ -101,3 +101,43 @@ class IngreRecommedBanner: NSObject {
     
 }
 
+class IngreRecommendWidgeList: NSObject{
+    var desc: String?
+    var title: String?
+    var title_link:String?
+    var widget_data:Array<IngreRecommendWidgetData>?
+    var widget_id:NSNumber?
+    var widget_type:NSNumber?
+    
+    class func parseModel(json: JSON)->IngreRecommendWidgeList{
+        let model = IngreRecommendWidgeList()
+        model.desc = json["decs"].string
+        model.title = json["title"].string
+        model.title_link = json["title_link"].string
+        var dataArray = Array<IngreRecommendWidgetData>()
+        for (_,Subjson): (String,JSON) in json["widget_data"] {
+            let subModel = IngreRecommendWidgetData.parseModel(Subjson)
+            dataArray.append(subModel)
+        }
+        model.widget_data = dataArray
+        model.widget_id = json["widget_id"].number
+        model.widget_type = json["widget_type"].number
+        return model
+    }
+}
+
+class IngreRecommendWidgetData:NSObject{
+    var content:String?
+    var id:NSNumber?
+    var link:String?
+    var type:String?
+    
+    class func parseModel(json: JSON)->IngreRecommendWidgetData {
+        let model=IngreRecommendWidgetData()
+        model.content = json["content"].string
+        model.id = json["id"].number
+        model.link = json["link"].string
+        model.type = json["type"].string
+        return model
+    }
+}

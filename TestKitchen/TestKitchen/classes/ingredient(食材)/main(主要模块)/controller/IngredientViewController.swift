@@ -14,6 +14,9 @@ class IngredientViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.yellowColor()
         
+        //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距，我们要取消这个间距
+        automaticallyAdjustsScrollViewInsets = false
+        
         //下载首页的推荐数据
         downloadRecommendData()
 
@@ -56,8 +59,25 @@ extension IngredientViewController:KTCDownloaderDelegate {
     }
     //下载成功
     func downloader(downloder: KTCDownloader, didFinishWithData data: NSData?) {
-        let str = NSString(data: data!, encoding: NSUTF8StringEncoding)
-        print(str!)
+//        let str = NSString(data: data!, encoding: NSUTF8StringEncoding)
+//        print(str)
+        if let tmpData = data {
+            //1.json解析
+        let recommendModel = IngreRecommend.parseData(tmpData)
+
+        
+        //判断是否是主线程
+//        print(NSThread.currentThread())
+        //2.显示UI
+        let recommendView = IngreRecommendView(frame: CGRectZero)
+        recommendView.model = recommendModel
+            view.addSubview(recommendView)
+            //约束
+            recommendView.snp_makeConstraints(closure: { (make) in
+                make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
+            })
+            
+        }
     }
 }
 

@@ -13,7 +13,7 @@ extension UILabel {
     class func createLabel(text:String?,textAlignment:NSTextAlignment?,font:UIFont?)->UILabel {
         let label = UILabel()
         if let tmpText = text {
-            label.text = text
+            label.text = tmpText
         }
         if let tmpAlignment = textAlignment{
             label.textAlignment = tmpAlignment
