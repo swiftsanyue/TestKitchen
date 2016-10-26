@@ -14,6 +14,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTu-Ve-pg2" userLabel="firstButton">
+                        <rect key="frame" x="0.0" y="0.0" width="94" height="69"/>
+                        <connections>
+                            <action selector="clickBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4bA-zl-JiN"/>
+                        </connections>
+                    </button>
                     <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQw-IR-sBj" userLabel="secondButton">
                         <rect key="frame" x="94" y="0.0" width="94" height="69"/>
                         <connections>
@@ -102,12 +108,6 @@
                     <imageView userInteractionEnabled="NO" tag="203" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="raz-lh-tXF" userLabel="Image View4">
                         <rect key="frame" x="313" y="20" width="30" height="30"/>
                     </imageView>
-                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTu-Ve-pg2" userLabel="firstButton">
-                        <rect key="frame" x="0.0" y="0.0" width="94" height="69"/>
-                        <connections>
-                            <action selector="clickBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4bA-zl-JiN"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="j6Q-XN-uZ9" secondAttribute="bottom" id="04J-so-78T"/>

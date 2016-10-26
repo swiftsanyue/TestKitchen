@@ -40,7 +40,7 @@ class IngreReommendData: NSObject {
     
     
     var banner: Array<IngreRecommendBanner>?
-    var widgetList: Array<IngreRecommendWidgeList>?
+    var widgetList: Array<IngreRecommendWidgetList>?
     
     //解析
     class func parseModel(json: JSON) -> IngreReommendData {
@@ -57,10 +57,10 @@ class IngreReommendData: NSObject {
         model.banner = tmpBannerArray
         
         //列表数据
-        var tmpList = Array<IngreRecommendWidgeList>()
+        var tmpList = Array<IngreRecommendWidgetList>()
         
         for (_, subjson): (String, JSON) in json["widgetList"] {
-            let wModel = IngreRecommendWidgeList.parseModel(subjson)
+            let wModel = IngreRecommendWidgetList.parseModel(subjson)
             tmpList.append(wModel)
         }
         model.widgetList = tmpList
@@ -101,7 +101,7 @@ class IngreRecommendBanner: NSObject {
     
 }
 
-class IngreRecommendWidgeList: NSObject{
+class IngreRecommendWidgetList: NSObject{
     var desc: String?
     var title: String?
     var title_link:String?
@@ -109,8 +109,8 @@ class IngreRecommendWidgeList: NSObject{
     var widget_id:NSNumber?
     var widget_type:NSNumber?
     
-    class func parseModel(json: JSON)->IngreRecommendWidgeList{
-        let model = IngreRecommendWidgeList()
+    class func parseModel(json: JSON)->IngreRecommendWidgetList{
+        let model = IngreRecommendWidgetList()
         model.desc = json["decs"].string
         model.title = json["title"].string
         model.title_link = json["title_link"].string
