@@ -1,8 +1,8 @@
 //
-//  mallViewController.swift
+//  MallViewController.swift
 //  TestKitchen
 //
-//  Created by qianfeng on 16/10/21.
+//  Created by qianfeng on 16/10/28.
 //  Copyright © 2016年 zl. All rights reserved.
 //
 

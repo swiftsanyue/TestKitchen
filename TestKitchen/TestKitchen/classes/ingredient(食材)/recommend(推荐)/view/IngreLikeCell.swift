@@ -11,7 +11,7 @@ import UIKit
 class IngreLikeCell: UITableViewCell {
     
     //闭包,由主页一步步传过来的,点击事件要用的网址
-    var jumpClosure:(String->Void)?
+    var jumpClosure:IngreJumpClosure?
     
     //数据
     var listModel:IngreRecommendWidgetList?{

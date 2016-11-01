@@ -111,7 +111,7 @@ class IngreRecommendWidgetList: NSObject{
     
     class func parseModel(json: JSON)->IngreRecommendWidgetList{
         let model = IngreRecommendWidgetList()
-        model.desc = json["decs"].string
+        model.desc = json["desc"].string
         model.title = json["title"].string
         model.title_link = json["title_link"].string
         var dataArray = Array<IngreRecommendWidgetData>()

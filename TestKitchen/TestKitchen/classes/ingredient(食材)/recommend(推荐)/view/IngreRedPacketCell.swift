@@ -15,6 +15,9 @@ class IngreRedPacketCell: UITableViewCell {
     //点击事件
     var jumpClosure: IngreJumpClosure?
     
+    //容器子视图
+    private var containerView: UIView?
+    
     //数据
     var listModel: IngreRecommendWidgetList? {
         didSet {
@@ -31,13 +34,19 @@ class IngreRedPacketCell: UITableViewCell {
     //显示数据
     func showData() {
         
+        //删除之前的子视图
+        if containerView != nil {
+            containerView?.removeFromSuperview()
+        }
+        
+        
         if listModel?.widget_data?.count > 0 {
             
             //容器视图
-            let containerView = UIView.createView()
+            containerView = UIView.createView()
+            ScrollView.addSubview(containerView!)
             
-            ScrollView.addSubview(containerView)
-            containerView.snp_makeConstraints(closure: {
+            containerView!.snp_makeConstraints(closure: {
                 [weak self]
                 (make) in
                 make.edges.equalTo((self?.ScrollView)!)
@@ -57,38 +66,53 @@ class IngreRedPacketCell: UITableViewCell {
                     let url = NSURL(string: (data?.content)!)
                     let tmpImageView = UIImageView()
                     tmpImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
-                    containerView.addSubview(tmpImageView)
+                    containerView!.addSubview(tmpImageView)
+                    
+                    //点击事件
+                    tmpImageView.userInteractionEnabled = true
+                    tmpImageView.tag = 300+i
+                    let g = UITapGestureRecognizer(target: self, action: #selector(tapImage(_:)))
+                    tmpImageView.addGestureRecognizer(g)
+                    
                     
                     //约束
                     tmpImageView.snp_makeConstraints(closure: {
                         (make) in
                         
-                        make.top.bottom.equalTo(containerView)
+                        make.top.bottom.equalTo(containerView!)
                         make.width.equalTo(210)
                         if i == 0 {
-                            make.left.equalTo(containerView)
+                            //将滚动视图显示在最中间
+                            //将滚动视图显示在最中间
+                            let x = (CGFloat(210*cnt!)-ScrollView.bounds.size.width)/2
+                            
+                            make.left.equalTo(containerView!).offset(-x)
                         }else{
                             make.left.equalTo((lastView?.snp_right)!)
                         }
-                        
                     })
-                    
                     //设置上一张图片的值
                     lastView = tmpImageView
                 }
-                
-                
-                
             }
-            
             //修改容器视图的宽度
-            containerView.snp_makeConstraints(closure: { (make) in
+            containerView!.snp_makeConstraints(closure: { (make) in
                 make.right.equalTo(lastView!)
             })
-            
+            ScrollView.showsHorizontalScrollIndicator = false
+            //设置代理
+            ScrollView.delegate = self
+        }
+    }
+    
+    //点击跳转事件
+    func tapImage(g:UIGestureRecognizer) {
+        let index = (g.view?.tag)! - 300
+        let data = listModel?.widget_data![index]
+        if jumpClosure != nil && data?.link != nil {
+            jumpClosure!((data?.link)!)
             
         }
-        
     }
     
     class func createRedPacketCellFor(tableView: UITableView, atIndexPath indexPath: NSIndexPath, listModel: IngreRecommendWidgetList) -> IngreRedPacketCell {
@@ -115,5 +139,20 @@ class IngreRedPacketCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }
+
+//MARK:UIScrollView代理
+extension IngreRedPacketCell:UIScrollViewDelegate{
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+//        let containerView = scrollView.viewWithTag(200)
+        let firstImageView = containerView!.viewWithTag(300)
+        if firstImageView?.isKindOfClass(UIImageView) == true {
+            firstImageView?.snp_updateConstraints(closure: { (make) in
+                make.left.equalTo(containerView!)
+            })
+        }
+    }
+}
+
+
+

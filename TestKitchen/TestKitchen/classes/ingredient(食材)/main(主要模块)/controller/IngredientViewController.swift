@@ -10,20 +10,36 @@ import UIKit
 
 class IngredientViewController: BaseViewController {
     
-    
+    var model = IngreRecommend()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.yellowColor()
+        
         
         //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距，我们要取消这个间距
         automaticallyAdjustsScrollViewInsets = false
-        
+        //创建导航
+        createNav()
         //下载首页的推荐数据
         downloadRecommendData()
-
-        // Do any additional setup after loading the view.
         
+
+        
+    }
+    func createNav(){
+        //扫一扫
+        addNavBtn("saoyisao", target: self, action: #selector(scanAction), isLeft: true)
+        
+        //搜索
+        addNavBtn("search", target: self, action: #selector(searchAction), isLeft: false)
+    }
+    
+    //扫一扫
+    func scanAction(){
+        print("1")
+    }
+    func searchAction(){
+        print("2")
     }
     
     //下载首页的推荐数据
@@ -61,8 +77,8 @@ extension IngredientViewController:KTCDownloaderDelegate {
     }
     //下载成功
     func downloader(downloder: KTCDownloader, didFinishWithData data: NSData?) {
-//        let str = NSString(data: data!, encoding: NSUTF8StringEncoding)
-//        print(str)
+        let str = NSString(data: data!, encoding: NSUTF8StringEncoding)
+        print(str)
         if let tmpData = data {
             //1.json解析
         let recommendModel = IngreRecommend.parseData(tmpData)
@@ -74,12 +90,12 @@ extension IngredientViewController:KTCDownloaderDelegate {
         let recommendView = IngreRecommendView(frame: CGRectZero)
         recommendView.model = recommendModel
             view.addSubview(recommendView)
-            
+            self.model=recommendModel
             
         //3.点击食材的推荐页面的某一个部分，跳转到后面的界面的时候传值用的闭包
             recommendView.jumpClosure = {
                 jumpUrl in
-//                print(jumpUrl)
+                print(jumpUrl)
             }
             
             

@@ -12,12 +12,18 @@ import UIKit
 public enum IngreWidgetType: Int{
     case GuessYouLike = 1 //猜你喜欢
     case RedPacket = 2 //红包入口
+    case TodayNew = 5 //今日新品
+    case Scene = 3 //早餐日记等
+    case SceneList = 9 //全部场景
+    case Talent = 4 //推荐达人
+    case Post = 8 //精选作品
+    case Topic = 7 //专题
 }
 
 class IngreRecommendView: UIView {
     
     //闭包
-    var jumpClosure:(String->Void)?
+    var jumpClosure:IngreJumpClosure?
 
     //数据
     var model:IngreRecommend?{
@@ -73,10 +79,20 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
             //获取list对象
             let listModel = model?.data?.widgetList![section-1]
             
-            if listModel?.widget_type?.integerValue == IngreWidgetType.GuessYouLike.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.RedPacket.rawValue{
+            if listModel?.widget_type?.integerValue == IngreWidgetType.GuessYouLike.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.RedPacket.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.TodayNew.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Scene.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.SceneList.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Post.rawValue{
                 //猜你喜欢
                 //红包入口
+                //今日新品
+                //早餐日记等
+                //全部场景
+                //精选作品 -- 精选作品
                 row = 1
+            }else if (listModel?.widget_type?.integerValue)! == IngreWidgetType.Talent.rawValue {
+                //推荐达人
+                row = (listModel?.widget_data?.count)! / 4
+            }else if (listModel?.widget_type?.integerValue)! == IngreWidgetType.Topic.rawValue {
+                //专题
+                row = (listModel?.widget_data?.count)! / 3
             }
         }
         return row
@@ -95,6 +111,24 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.RedPacket.rawValue {
                 //红包入口
                 height = 75
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.TodayNew.rawValue {
+                //今日新品
+                height = 280
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Scene.rawValue {
+                //早餐日记等
+                height = 200
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.SceneList.rawValue {
+                //全部场景
+                height = 70
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Talent.rawValue {
+                //推荐达人
+                height = 80
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Post.rawValue {
+                //精选作品 -- Post
+                height = 180
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Topic.rawValue {
+                //专题 -- Topic
+                height = 120
             }
         }
         
@@ -124,6 +158,57 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
                 //点击事件
                 cell.jumpClosure = jumpClosure
                 return cell
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.TodayNew.rawValue {
+                //今日新品
+                let cell = IngreTodayCell.createTodayCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
+                //点击事件
+                cell.jumpClosure = jumpClosure
+                return cell
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Scene.rawValue {
+                //早餐日记等
+                let cell = IngreSceneCell.createSceneCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
+                //点击事件
+                cell.jumpClosure = jumpClosure
+                return cell
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.SceneList.rawValue {
+                //全部场景
+                let cell = IngreSceneListCell.createSceneListCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
+                //点击事件
+                cell.jumpClosure = jumpClosure
+               
+                return cell
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Talent.rawValue {
+                //推荐达人
+                
+                //获取子数组
+                //indexPath.row==0   0 1 2 3
+                //indexPath.row==1   4 5 6 7
+                //indexPath.row==2   8 9 10 11
+                let range = NSMakeRange(indexPath.row*4, 4)
+                let array = NSArray(array: (listModel?.widget_data)!).subarrayWithRange(range) as! Array<IngreRecommendWidgetData>
+                
+                let cell = IngreTalnetCell.createTalentCellFor(tableView, atIndexPath: indexPath, cellArray: array)
+                //点击事件
+                cell.jumpClosure = jumpClosure
+                
+                return cell
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Post.rawValue {
+                //精选作品
+                let cell = TablePostCell.createPostCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
+                //点击事件
+                cell.jumpClosure = jumpClosure
+
+                return cell
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.Topic.rawValue {
+                //转子数组
+                let range = NSMakeRange(indexPath.row*3, 3)
+                let cellArray = NSArray(array: (listModel?.widget_data)!).subarrayWithRange(range) as! Array<IngreRecommendWidgetData>
+                //专题
+                let cell = IngreTopicCell.createTopicCellFor(tableView, atIndexPath: indexPath, cellArray: cellArray)
+                //点击事件
+                cell.jumpClosure = jumpClosure
+                
+                return cell
             }
         }
         
@@ -139,6 +224,17 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
                 //猜你喜欢的分组
                 let likeHeaderView = IngreLikeHeaderView(frame: CGRectMake(0,0,(tbView?.bounds.size.width)!,44))
                 return likeHeaderView
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.TodayNew.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Scene.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Talent.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Post.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Topic.rawValue{
+                //今日新品  --  TodayNew
+                //早餐日记等 -- Scene
+                //推荐达人 -- Talent
+                //精选作品 -- Post
+                //专题 -- Topic
+                let headerView = IngreHeaderView(frame: CGRectMake(0,0,(tbView?.bounds.size.width)!,54))
+//                headerView.configText((listModel?.title)!)
+                headerView.jumpClosure = jumpClosure
+                headerView.listModel = listModel
+                return headerView
             }
         }
         return nil
@@ -149,10 +245,33 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
         if section > 0 {
             let listModel = model?.data?.widgetList![section-1]
             if listModel?.widget_type?.integerValue == IngreWidgetType.GuessYouLike.rawValue {
+                //猜你喜欢
                 height=44
+            }else if listModel?.widget_type?.integerValue == IngreWidgetType.TodayNew.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Scene.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Talent.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Post.rawValue || listModel?.widget_type?.integerValue == IngreWidgetType.Topic.rawValue{
+                //今日新品  --  TodayNew
+                //早餐日记等 -- Scene
+                //推荐达人 -- Talent
+                //精选作品 -- Post
+                //专题 -- Topic
+                height=54
             }
         }
         return height
     }
-    
+    //去掉UITableView的粘滞性
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let h : CGFloat = 54
+        if scrollView.contentOffset.y >= h {
+            scrollView.contentInset = UIEdgeInsetsMake(-h, 0, 0, 0)
+        }else if scrollView.contentOffset.y > 0 {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        }
+    }
 }
+
+
+
+
+
+
+

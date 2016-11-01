@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        //修改导航的背景图片//可以设置的话，就是在所有的地方都这个效果
+        (UINavigationBar.appearance()).setBackgroundImage(UIImage(named: "navBar"), forBarMetrics: .Default)
+        
         let mainCtrl = MainTabBarViewController()
         window?.rootViewController=mainCtrl
         

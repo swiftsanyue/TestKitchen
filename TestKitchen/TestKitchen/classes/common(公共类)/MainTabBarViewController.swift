@@ -180,7 +180,7 @@ class MainTabBarViewController: UITabBarController {
         //3.设置图片和文子
         //自定制tabbar
         //隐藏系统的tabbar
-        tabBar.hidden = true
+//        tabBar.hidden = true
         createMyTabBar(images, titles: titles)
     }
     

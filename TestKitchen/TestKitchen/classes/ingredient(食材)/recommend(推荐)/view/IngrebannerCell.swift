@@ -11,7 +11,7 @@ import UIKit
 class IngreBannerCell: UITableViewCell {
     
     //闭包,由主页一步步传过来的
-    var jumpClosure:(String->Void)?
+    var jumpClosure:IngreJumpClosure?
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageCtrl: UIPageControl!
@@ -25,6 +25,14 @@ class IngreBannerCell: UITableViewCell {
     }
     //显示数据
     private func showData(){
+        
+        
+        //注意:滚动视图系统默认添加了一些子视图，删除子视图时要考虑一下会不会影响这些子视图
+        //删除滚动视图之前的子视图
+        for sub in scrollView.subviews {
+            sub.removeFromSuperview()
+        }
+        
         //遍历图片
         let cnt = bannerArray!.count
         if bannerArray?.count > 0 {
@@ -38,6 +46,7 @@ class IngreBannerCell: UITableViewCell {
                 //一定要设置高度
                 make.height.equalTo(scrollView)
             })
+            
             //2.循环设置子视图的约束,子视图是添加到容器视图里面
             var lastView: UIView? = nil
             
@@ -48,6 +57,8 @@ class IngreBannerCell: UITableViewCell {
                 //创建图片
                 let tmpImageView = UIImageView()
                 let url = NSURL(string: model.banner_picture!)
+                print(model.banner_picture)
+                print(url)
                 tmpImageView.kf_setImageWithURL(url!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
                 containerView.addSubview(tmpImageView)
                 
