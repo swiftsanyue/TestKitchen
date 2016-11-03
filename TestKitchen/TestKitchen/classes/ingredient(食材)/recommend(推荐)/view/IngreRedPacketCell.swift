@@ -126,6 +126,7 @@ class IngreRedPacketCell: UITableViewCell {
         
         //数据
         cell?.listModel = listModel
+        
         return cell!
     }
     

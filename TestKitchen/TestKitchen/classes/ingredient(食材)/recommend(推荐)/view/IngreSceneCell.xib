@@ -63,6 +63,17 @@
                             <action selector="clickImageBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ttG-jF-uY6"/>
                         </connections>
                     </button>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hd-9a-Fvd" userLabel="thirdBtn">
+                        <rect key="frame" x="128" y="82" width="119" height="78"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="78" id="k84-0P-zB5"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="sdefaultImage.png"/>
+                        <connections>
+                            <action selector="clickImageBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LZu-Lo-rfJ"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXT-c3-gZO" userLabel="sceneNameLabel">
                         <rect key="frame" x="4" y="100" width="120" height="30"/>
                         <constraints>
@@ -129,17 +140,6 @@
                         <state key="normal" backgroundImage="play.png"/>
                         <connections>
                             <action selector="playAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1j9-cB-ekd"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hd-9a-Fvd" userLabel="thirdBtn">
-                        <rect key="frame" x="128" y="82" width="119" height="78"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="78" id="k84-0P-zB5"/>
-                        </constraints>
-                        <state key="normal" backgroundImage="sdefaultImage.png"/>
-                        <connections>
-                            <action selector="clickImageBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LZu-Lo-rfJ"/>
                         </connections>
                     </button>
                 </subviews>

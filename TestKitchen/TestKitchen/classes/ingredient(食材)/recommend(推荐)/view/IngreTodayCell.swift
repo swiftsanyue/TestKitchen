@@ -108,6 +108,7 @@ class IngreTodayCell: UITableViewCell {
             cell = NSBundle.mainBundle().loadNibNamed("IngreTodayCell", owner: nil, options: nil).last as? IngreTodayCell
         }
         cell?.listModel = listModel
+        
         return cell!
     }
     

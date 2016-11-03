@@ -32,11 +32,10 @@ class IngreBannerCell: UITableViewCell {
         for sub in scrollView.subviews {
             sub.removeFromSuperview()
         }
-        
+       
         //遍历图片
-        let cnt = bannerArray!.count
+        let cnt = bannerArray?.count
         if bannerArray?.count > 0 {
-            
             //滚动视图加约束
             //1.创建一个容器视图,作为滚动视图的子视图
             let containerView = UIView.createView()
@@ -52,13 +51,11 @@ class IngreBannerCell: UITableViewCell {
             
             
             
-            for i in 0..<cnt {
+            for i in 0..<cnt! {
                 let model = bannerArray![i]
                 //创建图片
                 let tmpImageView = UIImageView()
                 let url = NSURL(string: model.banner_picture!)
-                print(model.banner_picture)
-                print(url)
                 tmpImageView.kf_setImageWithURL(url!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
                 containerView.addSubview(tmpImageView)
                 
@@ -86,7 +83,7 @@ class IngreBannerCell: UITableViewCell {
                 make.right.equalTo(lastView!)
             })
             //4.分页控件
-            pageCtrl.numberOfPages = cnt
+            pageCtrl.numberOfPages = cnt!
         }
     }
     //用父类的指针指向
@@ -111,6 +108,7 @@ class IngreBannerCell: UITableViewCell {
         }
         //显示数据
         cell?.bannerArray = bannerArray
+        
         return cell!
     }
     

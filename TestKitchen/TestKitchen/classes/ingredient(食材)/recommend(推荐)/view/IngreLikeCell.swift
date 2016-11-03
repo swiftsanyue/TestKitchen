@@ -79,6 +79,7 @@ class IngreLikeCell: UITableViewCell {
         }
         //显示数据
         cell?.listModel = listModel
+        
         return cell!
         
         

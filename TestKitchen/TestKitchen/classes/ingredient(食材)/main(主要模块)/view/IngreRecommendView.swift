@@ -142,7 +142,8 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
             
             //点击事件的响应代码
             cell.jumpClosure = jumpClosure
-            
+            //取消cell点击的效果
+            cell.selectionStyle = .None
             return cell
         }else {
             let listModel = model?.data?.widgetList![indexPath.section-1]
@@ -151,30 +152,40 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
                 let cell = IngreLikeCell.createLikeCellFor(tableView, atIndexPath: indexPath, listModel: listModel)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.RedPacket.rawValue {
                 //猜你喜欢
                 let cell = IngreRedPacketCell.createRedPacketCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.TodayNew.rawValue {
                 //今日新品
                 let cell = IngreTodayCell.createTodayCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.Scene.rawValue {
                 //早餐日记等
                 let cell = IngreSceneCell.createSceneCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.SceneList.rawValue {
                 //全部场景
                 let cell = IngreSceneListCell.createSceneListCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.Talent.rawValue {
@@ -190,6 +201,8 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
                 let cell = IngreTalnetCell.createTalentCellFor(tableView, atIndexPath: indexPath, cellArray: array)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                 
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.Post.rawValue {
@@ -197,6 +210,8 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
                 let cell = TablePostCell.createPostCellFor(tableView, atIndexPath: indexPath, listModel: listModel!)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
 
                 return cell
             }else if listModel?.widget_type?.integerValue == IngreWidgetType.Topic.rawValue {
@@ -207,6 +222,8 @@ extension IngreRecommendView:UITableViewDelegate,UITableViewDataSource{
                 let cell = IngreTopicCell.createTopicCellFor(tableView, atIndexPath: indexPath, cellArray: cellArray)
                 //点击事件
                 cell.jumpClosure = jumpClosure
+                //取消cell点击的效果
+                cell.selectionStyle = .None
                 
                 return cell
             }
