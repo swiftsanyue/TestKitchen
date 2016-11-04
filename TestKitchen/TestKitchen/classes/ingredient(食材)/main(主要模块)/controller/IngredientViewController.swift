@@ -77,7 +77,7 @@ class IngredientViewController: BaseViewController {
         scrollView?.delegate = self
         
         view.addSubview(scrollView!)
-        
+                                                                                                                              
         //约束
         scrollView!.snp_makeConstraints { (make) in
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
