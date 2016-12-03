@@ -2,7 +2,7 @@
 //  IngreService.swift
 //  TestKitchen
 //
-//  Created by qianfeng on 16/11/3.
+//  Created by ZL on 16/11/3.
 //  Copyright © 2016年 zl. All rights reserved.
 //
 
@@ -21,10 +21,19 @@ class IngreService: NSObject {
             if array.count > 1 {
                 let courseId = array[1]
                 FoodCourseService.handleFoodCourse(courseId, onViewController: vc)
-                print(courseId)
+//                print(courseId)
             }
             
             
+        }else if urlString.hasPrefix("http://video.szzhangchu.com") {
+            //播放视频
+            let array = urlString.componentsSeparatedByString("#")
+            print(array)
+            
+            VideoService.playVideo(array.last, onViewController: vc)
+            
+            //array.first
+            //array.last
         }
         
     }

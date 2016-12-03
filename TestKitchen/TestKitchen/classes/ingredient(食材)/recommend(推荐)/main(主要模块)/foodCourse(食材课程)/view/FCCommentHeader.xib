@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FCCommentHeader" customModule="TestKitchen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-rL-Akl">
+                    <rect key="frame" x="20" y="6" width="335" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="QZf-gc-Czd"/>
+                        <constraint firstAttribute="height" constant="20" id="t8k-qD-28l"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="t8k-qD-28l"/>
+                        </mask>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuF-6g-ni3">
+                    <rect key="frame" x="20" y="32" width="335" height="20"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="BTY-92-CSa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="我要评论"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commentAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="jDh-tr-pMy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sh7-rL-Akl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="B5c-Hw-6xB"/>
+                <constraint firstItem="MuF-6g-ni3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="JSt-e3-aQW"/>
+                <constraint firstAttribute="trailing" secondItem="MuF-6g-ni3" secondAttribute="trailing" constant="20" id="Mfa-2M-kGg"/>
+                <constraint firstItem="sh7-rL-Akl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="Ns5-x9-iDU"/>
+                <constraint firstItem="sh7-rL-Akl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ZdN-7q-6JI"/>
+                <constraint firstAttribute="trailing" secondItem="sh7-rL-Akl" secondAttribute="trailing" constant="20" id="hft-TA-J2X"/>
+                <constraint firstItem="MuF-6g-ni3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="kbL-TS-5Rb"/>
+                <constraint firstItem="sh7-rL-Akl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="l4O-1J-Mm1"/>
+                <constraint firstItem="MuF-6g-ni3" firstAttribute="leading" secondItem="sh7-rL-Akl" secondAttribute="trailing" constant="20" id="pm9-rx-n7f"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ZdN-7q-6JI"/>
+                    <exclude reference="l4O-1J-Mm1"/>
+                    <exclude reference="pm9-rx-n7f"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="titleLabel" destination="sh7-rL-Akl" id="7B6-Oa-1KD"/>
+            </connections>
+        </view>
+    </objects>
+</document>

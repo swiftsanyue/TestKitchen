@@ -2,7 +2,7 @@
 //  MainTabBarViewController.swift
 //  TestKitchen
 //
-//  Created by qianfeng on 16/10/21.
+//  Created by ZL on 16/10/21.
 //  Copyright © 2016年 zl. All rights reserved.
 //
 
@@ -125,6 +125,7 @@ class MainTabBarViewController: UITabBarController {
         do {
             //可能抛异常的代码写在这里
             let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
+            
             if json.isKindOfClass(NSArray) {
                 let tmpArray = json as! Array<Dictionary<String,String>>
                 
@@ -180,9 +181,24 @@ class MainTabBarViewController: UITabBarController {
         //3.设置图片和文子
         //自定制tabbar
         //隐藏系统的tabbar
-//        tabBar.hidden = true
+        tabBar.hidden = true
         createMyTabBar(images, titles: titles)
     }
+    
+    //显示tabBar
+    func showTabBar(){
+        UIView.animateWithDuration(3) {
+            self.bgView?.hidden = false
+        }
+    }
+    
+    //隐藏tabBar
+    func hideTabBar(){
+        UIView.animateWithDuration(3) {
+            self.bgView?.hidden = true
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
